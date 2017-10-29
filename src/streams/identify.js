@@ -1,7 +1,8 @@
 'use strict';
 
-var sharp = require('sharp');
-var map   = require('map-stream');
+var sharp  = require('sharp');
+var map    = require('map-stream');
+var gunzip = require('gunzip-maybe');
 
 
 module.exports = function(){
@@ -33,7 +34,7 @@ module.exports = function(){
 
     image.log.time('identify');
 
-    sharp(image.contents).metadata(handleResponse);
+    sharp(image.contents.pipe(gunzip())).metadata(handleResponse);
   });
 
 };
