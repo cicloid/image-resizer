@@ -84,7 +84,6 @@ function xy(modifiers, width, height, cropWidth, cropHeight){
 }
 exports.xy = xy;
 
-
 exports.cropFill = function(modifiers, size){
   var wd, ht,
       newWd, newHt,

@@ -44,7 +44,9 @@ module.exports = function () {
     var r = sharp(image.contents);
 
     // never enlarge an image beyond its original size
-    r.withoutEnlargement();
+    if (image.modifiers.action === 'outsize'){
+      r.withoutEnlargement();
+    }
 
     // if allowed auto rotate images, very helpful for photos off of an iphone
     // which are landscape by default and the metadata tells them what to show.
