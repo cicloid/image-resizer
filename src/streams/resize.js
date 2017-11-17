@@ -44,7 +44,7 @@ module.exports = function () {
     var r = sharp(image.contents);
 
     // never enlarge an image beyond its original size
-    if (image.modifiers.action === 'outsize'){
+    if (image.modifiers.action === 'noresize'){
       r.withoutEnlargement();
     }
 
@@ -70,6 +70,11 @@ module.exports = function () {
     case 'resize':
       r.resize(image.modifiers.width, image.modifiers.height);
       r.max();
+      r.toBuffer(resizeResponse);
+      break;
+
+    case 'size':
+      r.resize(image.modifiers.width, image.modifiers.height);
       r.toBuffer(resizeResponse);
       break;
 
