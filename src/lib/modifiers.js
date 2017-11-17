@@ -80,11 +80,6 @@ modifierMap = [
     type: 'integer'
   },
   {
-    key: 'z',
-    desc: 'size',
-    type: 'integer'
-  },
-  {
     key: 'y',
     desc: 'top',
     type: 'integer'
@@ -106,7 +101,7 @@ modifierMap = [
     desc: 'crop',
     type: 'string',
     values: ['fit','fill','cut','scale','pad'],
-    default: 'fit'
+    default: 'fill'
   },
   {
     key: 'e',
@@ -196,12 +191,6 @@ function parseModifiers(mods, modArr) {
         break;
       case 'square':
         mods.action = 'square';
-        mods.height = string.sanitize(value);
-        mods.width = string.sanitize(value);
-        mods.hasModStr = true;
-        break;
-      case 'size':
-        mods.action = 'size';
         mods.height = string.sanitize(value);
         mods.width = string.sanitize(value);
         mods.hasModStr = true;

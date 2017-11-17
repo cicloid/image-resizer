@@ -69,7 +69,6 @@ module.exports = function () {
 
     case 'resize':
       r.resize(image.modifiers.width, image.modifiers.height);
-      r.max();
       r.toBuffer(resizeResponse);
       break;
 
